@@ -1,0 +1,136 @@
+// Solidity 所有关键字（Solidity 0.8.x 常用关键字汇总）
+// 说明：以下为Solidity语言的保留字和常用关键字，部分为语法结构，部分为内置类型和全局变量。
+
+
+// 1. 语法结构及用法
+abstract        // 抽象合约声明，不能直接部署
+break           // 跳出循环
+catch           // try-catch异常处理结构
+constant        // 旧版常量声明（新用constant修饰变量）
+continue        // 跳过本次循环，进入下次循环
+do              // do...while循环结构
+else            // 条件语句else分支
+emit            // 触发事件，如emit Transfer(...)
+enum            // 枚举类型声明
+error           // 自定义错误类型，用于revert
+external        // 函数外部可见性修饰符
+fallback        // 回退函数声明，接收未知调用
+for             // for循环结构
+function        // 函数声明
+if              // 条件语句if分支
+immutable       // 部署后不可更改的状态变量
+import          // 导入其他合约或库
+indexed         // 事件参数修饰符，便于日志检索
+inline          // 内联汇编相关（少用）
+interface       // 接口声明
+internal        // 内部可见性修饰符
+is              // 继承关系声明，如contract A is B
+library         // 库声明
+mapping         // 映射类型声明，如mapping(address=>uint)
+memory          // 内存数据位置修饰符
+modifier        // 修饰符声明，用于函数权限/流程控制
+new             // 创建新合约实例，如new Contract()
+override        // 重写父合约函数/修饰符
+payable         // 可接收ETH的函数/地址修饰符
+pragma          // 编译器版本声明，如pragma solidity ^0.8.0;
+private         // 私有可见性修饰符
+public          // 公开可见性修饰符
+pure            // 纯函数修饰符，不读写状态
+receive         // 接收ETH的特殊函数
+return          // 返回语句
+returns         // 返回值类型声明
+revert          // 主动回退并抛出错误
+storage         // 存储数据位置修饰符
+struct          // 结构体类型声明
+throw           // 旧版异常抛出（已废弃）
+try             // try-catch异常处理结构
+type            // 获取类型信息，如type(MyContract).creationCode
+using           // using for库扩展类型
+view            // 只读函数修饰符
+virtual         // 允许被重写的函数/修饰符
+while           // while循环结构
+constructor     // 构造函数声明
+event           // 事件声明，用于链上日志
+delete          // 删除变量或数组元素
+assembly        // 内联汇编块
+calldata        // 外部函数参数数据位置修饰符
+
+
+// 2. 内置类型及用法
+address     // 以太坊地址类型
+bool        // 布尔类型，true/false
+string      // 字符串类型
+bytes       // 动态字节数组
+uint        // 无符号整数，等价于uint256
+uint8       // 8位无符号整数
+uint16      // 16位无符号整数
+uint32      // 32位无符号整数
+uint64      // 64位无符号整数
+uint128     // 128位无符号整数
+uint256     // 256位无符号整数
+int         // 有符号整数，等价于int256
+int8        // 8位有符号整数
+int16       // 16位有符号整数
+int32       // 32位有符号整数
+int64       // 64位有符号整数
+int128      // 128位有符号整数
+int256      // 256位有符号整数
+fixed       // 定点数类型（未启用）
+ufixed      // 无符号定点数类型（未启用）
+
+
+// 3. 全局变量/函数及用法
+block         // 区块相关全局变量，如block.number, block.timestamp
+msg           // 消息相关全局变量，如msg.sender, msg.value
+tx            // 交易相关全局变量，如tx.origin
+now           // 当前时间戳（等价于block.timestamp，已废弃）
+super         // 父合约调用，如super.function()
+this          // 当前合约地址
+selfdestruct  // 销毁合约并转移余额
+suicide       // 旧版合约销毁（已废弃）
+assert        // 断言失败时回退，消耗所有gas
+require       // 条件校验，不满足则回退
+keccak256     // 哈希函数，返回bytes32
+sha256        // 哈希函数，返回bytes32
+ripemd160     // 哈希函数，返回bytes20
+blockhash     // 获取指定区块哈希
+ecrecover     // 椭圆曲线签名恢复地址
+addmod        // 模加法
+mulmod        // 模乘法
+balance       // 地址余额，如address(this).balance
+code          // 地址上的合约字节码
+codehash      // 地址上的合约代码哈希
+transfer      // 转账ETH，自动revert失败
+send          // 转账ETH，返回bool
+call          // 低级调用，推荐用法address.call{value:...}(...)
+callcode      // 旧版低级调用（已废弃）
+delegatecall  // 代理调用，执行上下文为当前合约
+staticcall    // 静态只读调用
+log0-log4     // 低级事件日志（一般不用）
+
+
+// 4. 未来保留字（不能用作标识符）
+after        // 未来可能用作调度相关
+auto         // 未来可能用作自动类型推断
+case         // 未来可能用于switch-case结构
+default      // 未来可能用于switch-case结构
+define       // 预留
+final        // 预留
+in           // 预留
+inline       // 预留
+let          // 预留
+macro        // 预留
+match        // 预留
+null         // 预留
+of           // 预留
+relocatable  // 预留
+static       // 预留
+switch       // 预留
+type         // 预留
+var          // 预留
+
+// 说明：
+// - 关键字区分大小写。
+// - 某些关键字仅在特定上下文中使用。
+// - 未来保留字为防止版本升级冲突，建议不要用作变量名。
+// - 具体用法请查阅Solidity官方文档：https://docs.soliditylang.org/zh/v0.8.0/
